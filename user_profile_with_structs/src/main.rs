@@ -1,36 +1,8 @@
-#[derive(Debug)]
-struct UserProfile {
-    username: String,
-    age: u32,
-    email: String,
-}
+mod user_profile;
+mod user_profile_fields;
 
-impl UserProfile {
-    fn new(username: String, age: u32, email: String) -> Self {
-        Self {
-            username,
-            age,
-            email,
-        }
-    }
-
-    fn update_profile(&mut self, fields: &Vec<UserProfileFields>) {
-        for field in fields {
-            match field {
-                UserProfileFields::UserName(x) => self.username = x.to_string(),
-                UserProfileFields::Age(x) => self.age = *x,
-                UserProfileFields::Email(x) => self.email = x.to_string(),
-            }
-        }
-    }
-}
-
-#[derive(Debug)]
-enum UserProfileFields {
-    UserName(String),
-    Age(u32),
-    Email(String),
-}
+use crate::user_profile::UserProfile;
+use crate::user_profile_fields::UserProfileFields;
 
 fn main() {
     let mut user1 = UserProfile::new(String::from("Terry"), 29, String::from("terbeauj@mail.com"));

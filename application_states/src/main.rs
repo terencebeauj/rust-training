@@ -1,20 +1,6 @@
-enum AppState {
-    Loading(bool),
-    Running(bool),
-    Error(bool),
-    Exit(bool),
-}
+mod state;
 
-impl AppState {
-    fn print_state(&self) {
-        match self {
-            AppState::Loading(_) => println!("Application is loading"),
-            AppState::Running(_) => println!("Application is running"),
-            AppState::Error(_) => println!("An error was raised in the application"),
-            AppState::Exit(_) => println!("Going to exit the application"),
-        }
-    }
-}
+use state::AppState;
 
 fn main() {
     let app: AppState = AppState::Loading(true);

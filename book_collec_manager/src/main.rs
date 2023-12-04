@@ -1,44 +1,10 @@
-#[derive(Debug, PartialEq)]
-enum Status {
-    Available,
-    Borrowed,
-}
+mod book_manager;
+mod status;
+mod book;
 
-#[derive(Debug)]
-struct Book {
-    title: String,
-    status: Status,
-}
-
-#[derive(Debug)]
-struct BookManager {
-    books: Vec<Book>,
-}
-
-impl BookManager {
-    fn add_book(&mut self, book: Book) {
-        self.books.push(book);
-    }
-
-    fn change_status(&mut self, name: String, new_status: Status) {
-        for book in &mut self.books {
-            if book.title == name {
-                match new_status {
-                    Status::Available => book.status = Status::Available,
-                    Status::Borrowed => book.status = Status::Borrowed,
-                }
-            }
-        }
-    }
-
-    fn list_books_with_status(&self, status: Status) {
-        let books_with_status: Vec<&Book> = self.books
-            .iter()
-            .filter(|book| book.status == status)
-            .collect();
-        dbg!(books_with_status);
-    }
-}
+use crate::book_manager::BookManager;
+use crate::status::Status;
+use crate::book::Book;
 
 fn main() {
     let status1 = Status::Available;
