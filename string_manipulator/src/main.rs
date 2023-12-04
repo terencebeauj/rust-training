@@ -1,28 +1,6 @@
-struct Text {
-    text: String,
-}
+mod text;
 
-impl Text {
-    fn append(&mut self, s: &str) {
-        self.text.push_str(s);
-    }
-
-    fn clear(&mut self) {
-        self.text.clear();
-    }
-
-    fn count_word(&self, word: &str) -> u32 {
-        let mut counter: u32 = 0;
-        let words: Vec<&str> = self.text.split([' ', '.', ',', ';', '?', '!']).collect();
-        for item in words {
-            if item == word {
-                counter += 1;
-            }
-        }
-
-        counter
-    }
-}
+use crate::text::Text;
 
 fn main() {
     let sentence = "hello";

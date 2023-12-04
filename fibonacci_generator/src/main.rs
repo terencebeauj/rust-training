@@ -1,4 +1,8 @@
+mod fibonacci;
+
 use std::io;
+
+use crate::fibonacci::fibonacci;
 
 fn main() {
     let mut number = String::new();
@@ -15,12 +19,4 @@ fn main() {
     println!("{number}th fibonacci number is: {result}")
 }
 
-fn fibonacci(number: usize) -> usize {
-    if number == 1 || number == 0 {
-        return number;
-    }
-
-    fibonacci(number - 1) + fibonacci(number - 2)
-}
-
-// TODO: Use a better algorithm to handle big numbers 
+// TODO: Use a better algorithm to handle big numbers

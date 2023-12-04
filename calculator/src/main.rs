@@ -1,27 +1,6 @@
-struct Calculator {}
+mod calculator;
 
-impl Calculator {
-    fn add(&self, x: f32, y: f32) -> f32 {
-        x + y
-    }
-
-    fn substract(&self, x: f32, y: f32) -> f32 {
-        x - y
-    }
-
-    fn multiply(&self, x: f32, y: f32) -> f32 {
-        x * y
-    }
-
-    fn divide(&self, x: f32, y: f32) -> f32 {
-        if y != 0.0 {
-            return x / y;
-        }
-
-        println!("Division by 0 forbidden !");
-        0.0
-    }
-}
+use calculator::Calculator;
 
 fn main() {
     let calculator = Calculator {};

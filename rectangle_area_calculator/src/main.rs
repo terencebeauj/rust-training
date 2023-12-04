@@ -1,11 +1,8 @@
-struct Rectangle {
-    width: u32,
-    height: u32,
-}
+mod rectangle;
+mod utils;
 
-fn area(rectangle: &Rectangle) -> u32 {
-    rectangle.height * rectangle.width
-}
+use crate::rectangle::Rectangle;
+use crate::utils::area;
 
 fn main() {
     let rectangle = Rectangle {

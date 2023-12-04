@@ -1,4 +1,10 @@
+mod converters;
+mod utils;
+
 use std::io;
+
+use crate::converters::{celsius_to_farenheit, farenheit_to_celsius};
+use crate::utils::check_choice;
 
 fn main() {
     println!("Do you want to convert from:\n 1 - Celsius to Farenheit\n 2 - Farenheit to Celsius");
@@ -36,21 +42,6 @@ fn main() {
         result = farenheit_to_celsius(temp);
         println!("{temp} F = {result} C");
     };
-}
-
-fn celsius_to_farenheit(temp: f64) -> f64 {
-    (temp * 1.8) + 32.0
-}
-
-fn farenheit_to_celsius(temp: f64) -> f64 {
-    (temp - 32.0) / 1.8
-}
-
-fn check_choice(choice: i8) {
-    if choice != 1 && choice != 2 {
-        println!("You need to choose between 1 and 2. Going to exit the software!");
-        std::process::abort();
-    }
 }
 
 // TO DO

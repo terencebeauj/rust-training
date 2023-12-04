@@ -1,4 +1,8 @@
+mod factorial;
+
 use std::io;
+
+use factorial::factorial;
 
 fn main() {
     let mut number = String::new();
@@ -13,14 +17,6 @@ fn main() {
     let result = factorial(number);
 
     println!("{number}! = {result}");
-}
-
-fn factorial(n: usize) -> usize {
-    if n == 0 || n == 1 {
-        return 1;
-    }
-
-    n*factorial(n-1)
 }
 
 // TODO: Fix overflow bug
